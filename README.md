@@ -54,7 +54,6 @@ Configuration: spring.xml
 Defines the DataSource bean for database connection.
 
 xml
-Copy code
       
       <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
           <property name="driverClassName" value="com.mysql.cj.jdbc.Driver" />
@@ -68,7 +67,6 @@ Copy code
 Defines the Hibernate SessionFactory bean.
 
 xml
-Copy code
 
     <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
         <property name="dataSource" ref="dataSource" />
@@ -86,7 +84,6 @@ Copy code
 Defines a DAO bean to interact with Hibernate.
 
 xml
-Copy code
 
     <bean id="userDao" class="com.example.dao.UserDaoImpl">
         <property name="sessionFactory" ref="sessionFactory" />
@@ -99,7 +96,6 @@ Code Structure
 Represents the database table.
 
 java
-Copy code
 
     @Entity
     @Table(name = "users")
@@ -118,7 +114,6 @@ Copy code
 Handles database operations.
 
 java
-Copy code
 
     @Repository
     public class UserDaoImpl implements UserDao {
@@ -136,7 +131,6 @@ Copy code
 Implements business logic.
 
 java
-Copy code
 
     @Service
     public class UserService {
